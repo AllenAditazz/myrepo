@@ -1,7 +1,5 @@
 package allen;
 
-import java.awt.Desktop;
-import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -35,8 +32,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Popup;
-import javafx.stage.PopupWindow;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -158,6 +153,8 @@ public class App extends Application {
 		actionPane.getChildren().add(playButton);
 		Button convertButton = new Button("Convert");
 		actionPane.getChildren().add(convertButton);
+		Button copyButton = new Button("Copy");
+		actionPane.getChildren().add(copyButton);
 
 		// rating
 		HBox ratingPane = new HBox(15);
@@ -311,6 +308,7 @@ public class App extends Application {
 				vp.alphabetical = alphabeticalRadioButton.isSelected();
 				vp.focusDate = timeSelector.getValue();
 				vp.rangeDate = timeVariance.getValue();
+
 				vp.searchString = searchTextField.getText().toLowerCase();
 
 				try {
@@ -333,7 +331,12 @@ public class App extends Application {
 					new Player(orderedMatchingClips, config, numberToInitiallyPlay, infoPane, primaryStage);
 				}
 			}
+
+
 		});
+		
+		
+
 
 		convertButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -372,6 +375,48 @@ public class App extends Application {
 					
 					 MediaConverter.convert(v, infoPane);
 					 config.serializeDB(config.configFileName, infoPane);
+
+				}
+
+			}
+		});
+		
+		copyButton.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+
+
+				vp = new VideoPreference();
+				vp.andTags = false;
+				vp.tags = new ArrayList<String>();
+				vp.directories = new ArrayList<String>();
+				for (CheckBox tag : dirCheckBoxes) {
+					if (tag.isSelected())
+						vp.directories.add(tag.getText());
+				}
+				vp.mostRecent = mostRecentRadioButton.isSelected();
+				vp.oldest = oldestRadioButton.isSelected();
+				vp.random = randomRadioButton.isSelected();
+				vp.alphabetical = alphabeticalRadioButton.isSelected();
+				vp.focusDate = timeSelector.getValue();
+				vp.rangeDate = timeVariance.getValue();
+				vp.searchString = searchTextField.getText().toLowerCase();
+				List<Video> matchingClips = vp.getAllUnPlayableClips(playList, infoPane);
+
+				String msg = matchingClips.size() + " Matching videos for conversion \n";
+				Utility.msg(analysisText, msg);
+				String numClipsS = numClipsComboBox.getValue();
+				int numberToConvert = 5;
+				if (!(numClipsS == null))
+					numberToConvert = Integer.parseInt(numClipsS);
+				List<Video> orderedMatchingClips = vp.orderClips(matchingClips);
+				orderedMatchingClips = orderedMatchingClips.subList(0,
+						Integer.min(numberToConvert, orderedMatchingClips.size()));
+				
+				
+				for (Video v : orderedMatchingClips) {
+					
+					
 
 				}
 
@@ -426,6 +471,8 @@ public class App extends Application {
 		primaryStage.show();
 
 	}
+
+
 
 	public void stop() {
 		System.out.println("Stop called");

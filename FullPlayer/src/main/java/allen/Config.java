@@ -363,16 +363,19 @@ public class Config {
 		analyze(ta);
 
 		for (String dirS : directories) {
-			String modifiedDir = Utility.getModifiedPath(dirS);
-			File dirF = new File(modifiedDir);
+			File dirF = new File(dirS);
 			if (!dirF.exists() || !dirF.isDirectory()) {
 				Utility.msg(ta, dirS + " is not a directory");
 				continue;
 			}
 
-			Utility.msg(ta, "scanning " + dirS + " (" + modifiedDir + ") ... ");
+			Utility.msg(ta, "scanning " + dirS + " ... ");
 			File[] files = dirF.listFiles();
-
+			if(files == null) {
+				Utility.msg(ta,  dirS + " cannot be scanned ");
+				deletedOrMoved = deletedOrMoved.stream().filter(v -> ! v.getDirectory().equals(dirS)).toList();
+				continue;
+			}
 			for (File file : files) {
 				if (file.isHidden() || file.isDirectory())
 					continue;
@@ -380,6 +383,7 @@ public class Config {
 				String fileName = file.getName();
 				if (!Utility.MEDIA_EXTENSIONS.contains(Utility.getExtension(fileName))) {
 					Utility.msg(ta, fileName + " is not a media file");
+	
 				}
 
 				List<Video> vids = vidIndex.get(fileName);

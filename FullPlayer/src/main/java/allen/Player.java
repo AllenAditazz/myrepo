@@ -70,8 +70,9 @@ public class Player {
 	
 	static final Double HSIZE = 3360.0; 
 	//static final Double HSIZE = 2560.0;
-	//static final Double HSIZE = 500.0;
+	//static final Double HSIZE = 1660.0;
 	//static final Double HSIZE = 1920.0;
+	
 	static final Double VSIZE = (HSIZE * 0.5626); // 16:9
 	static final Duration CLIP_END_BUFFER = Duration.seconds(10.0);
 
