@@ -30,7 +30,7 @@ import javafx.scene.control.TextArea;
 
 public class Config {
 	
-	public static String fileSubstitutionPrefix = null;
+//	public static String fileSubstitutionPrefix = null;
 
 
 	public List<String> tags;
@@ -41,6 +41,7 @@ public class Config {
 	public List<Video> videos;
 	public String picDirectory;
 	public String importBaseDirectory;
+	protected String copyDirectory;
 
 	
 	protected static final  String DUP = "dup";

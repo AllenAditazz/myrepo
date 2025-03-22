@@ -1,12 +1,18 @@
 package allen;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import java.util.stream.Collectors;
+
+import javax.xml.transform.Source;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -59,11 +65,12 @@ public class App extends Application {
 		primary = primaryStage;
 		if (commandArgs.length > 0)
 			configFilename = commandArgs[0];
-		if (commandArgs.length > 1)
-			Config.fileSubstitutionPrefix  = commandArgs[1];
+
 
 
 		final Config config = Config.parseDB(configFilename);
+		if (commandArgs.length > 1)
+			config.copyDirectory  = commandArgs[1];
 
 		playList = config.videos;
 		numberOfClipsInDatabase = playList.size();
@@ -390,34 +397,76 @@ public class App extends Application {
 				vp.andTags = false;
 				vp.tags = new ArrayList<String>();
 				vp.directories = new ArrayList<String>();
+				// tags
+				for (CheckBox tag : tagCheckBoxes) {
+					if (tag.isSelected())
+						if (tag.getText().equalsIgnoreCase("and")) {
+							vp.andTags = true;
+						}
+						else
+							vp.tags.add(tag.getText());
+				}
+				// dirs
 				for (CheckBox tag : dirCheckBoxes) {
 					if (tag.isSelected())
 						vp.directories.add(tag.getText());
 				}
+				vp.equalRating = exactRating.isSelected();
+				vp.onlyUnrated = unratedCheckBox.isSelected();
+				if (ratingLevelsBox.getValue() != null) {
+					if( ratingLevelsBox.getValue().equals("all"))
+						vp.rating = null;
+					else
+						vp.rating = Integer.parseInt(ratingLevelsBox.getValue());
+				}
+
+				// plays
+				vp.plays = null;
+				if (unPlayedRadio.isSelected())
+					vp.plays = 0;
+				else if (lessThan3Radio.isSelected())
+					vp.plays = 3;
+				else if (lessThan5Radio.isSelected())
+					vp.plays = 5;
+
 				vp.mostRecent = mostRecentRadioButton.isSelected();
 				vp.oldest = oldestRadioButton.isSelected();
 				vp.random = randomRadioButton.isSelected();
 				vp.alphabetical = alphabeticalRadioButton.isSelected();
 				vp.focusDate = timeSelector.getValue();
 				vp.rangeDate = timeVariance.getValue();
+
 				vp.searchString = searchTextField.getText().toLowerCase();
-				List<Video> matchingClips = vp.getAllUnPlayableClips(playList, infoPane);
 
-				String msg = matchingClips.size() + " Matching videos for conversion \n";
-				Utility.msg(analysisText, msg);
-				String numClipsS = numClipsComboBox.getValue();
-				int numberToConvert = 5;
-				if (!(numClipsS == null))
-					numberToConvert = Integer.parseInt(numClipsS);
-				List<Video> orderedMatchingClips = vp.orderClips(matchingClips);
-				orderedMatchingClips = orderedMatchingClips.subList(0,
-						Integer.min(numberToConvert, orderedMatchingClips.size()));
+				try {
+					Pattern p = Pattern.compile(vp.searchString);
+				} catch (PatternSyntaxException e) {
+					infoPane.appendText("Invalid search pattern \n");
+					return;
+				}
+				List<Video> matchingClips = vp.getAllPlayableClips(playList, infoPane);
+				Utility.msg( infoPane, "matching clips: "+ matchingClips.size());
 				
-				
-				for (Video v : orderedMatchingClips) {
+				for (Video v : matchingClips) {
 					
-					
+					Path source = Paths.get(v.getDirectory(), v.fileName);
+					try {
+						long len = source.toFile().getCanonicalFile().length();
+						if( len  > 100000000   &&  len  < 1000000000) {
+						Path target = Paths.get(config.copyDirectory, v.fileName );
+						try {
+							Files.copy(source, target);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							//e.printStackTrace();
+						}	
+						
 
+						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						//e.printStackTrace();
+					}
 				}
 
 			}
@@ -471,8 +520,6 @@ public class App extends Application {
 		primaryStage.show();
 
 	}
-
-
 
 	public void stop() {
 		System.out.println("Stop called");

@@ -36,13 +36,7 @@ public class Utility {
 	}
 	
 	static String getModifiedPath(String st) {
-		if(Config.fileSubstitutionPrefix == null)
-			return st;
-		
-		if(st.startsWith("/")) 
-			return "/" + Config.fileSubstitutionPrefix + st.substring(st.indexOf("/", 1));
-
-		return Config.fileSubstitutionPrefix + st.substring(st.indexOf("/"));
+		return st;
 	}
 	
 	

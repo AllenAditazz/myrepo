@@ -68,10 +68,10 @@ public class Player {
 	private Label playTimeLabel;
 	private Label muteSpeedLabel;
 	
-	static final Double HSIZE = 3360.0; 
-	//static final Double HSIZE = 2560.0;
-	//static final Double HSIZE = 1660.0;
-	//static final Double HSIZE = 1920.0;
+//	static final Double HSIZE = 3360.0; 
+//	static final Double HSIZE = 2560.0;
+	static final Double HSIZE = 1580.0;
+//	static final Double HSIZE = 1920.0;
 	
 	static final Double VSIZE = (HSIZE * 0.5626); // 16:9
 	static final Duration CLIP_END_BUFFER = Duration.seconds(10.0);
@@ -568,6 +568,7 @@ public class Player {
         	playNextClip();
 
         }
+ 
 	}
 
 	private void playNextClip() {
@@ -627,6 +628,10 @@ public class Player {
 		else if (ch.equals("'")) {
         	playerToVideo.get(nowPlayingPlayer).rating = 3;
         	ratingLabel.setText("3");
+			
+		}
+		else if (ch.equals("q")) {
+        	closeAction();
 			
 		}
 		else if (ch.equals("/")) {
