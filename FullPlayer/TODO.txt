@@ -1,25 +1,43 @@
 
+create one media object at a time.  Keep player position programmatically.
+
+turn off default key behavior for space and arrows
+
+fix right arrow advance at end of clip
+
+key press to exit player  (implemented q)
+
+store length of files in config and display
+
+insure inconsistent player specs don't occur  (e.g. unplayed and rated selected)
+
+restore "more" button
+
+make search simple
+
+snapshot using  scene.snapshop
+
+display info about first video being played
+
+fix bug in move message that doesn't display original file location
+
+make file conversion work
+
+reset to uncheck all selection choices
+
+set screen size for player in config pane
+
+
+
+
+
 Are ffmpeg text getting int index?
 Remove any non null ff output
 
-deep analysis and fast analysis
-
-remove duip
-
-remove entries from wd14
-
-scan and new files should work the same way
 
 
-restrict playlist size to 40, grey out more button
 
-file lock
 
-store length of files in config
-
-files not being trashed properly?
-
-abd not working againa?
 
 
 
@@ -30,31 +48,14 @@ buttons for playing new videos or playing unrated (reset all selections too)
 
 
 
-string that has no re  + .   $    characters is a substring search  foo => .*foo.*  
-
-
-Add detection of pics  in comp and move to pic dir in base
-
-
-snapshot using  scene.snapshop
-
-
-create stills add to picts dir in base
-
-and tags doesn't work
-
-
-
-macbook 12 for conversion  maybe just x265 new files
 
 
 clean up messages esp moved messages and use of sysout
 
-Swipe mouse to advance and volume  use scroll gesture
+Swipe mouse to advance and volume use scroll gesture
 
 
-adjust window sizes
-set screen size for player in config pane
+
 
 
 delete dups and non meda files 
@@ -69,16 +70,11 @@ choose rating via colored buttons chosen with a X in it or enlarged
 display rating 
 
 
-button to delete non  video files
 
 
-skip non media types when scanning dirs config:372
 
 
-bug: duration not displayed for first video
 
-
-clean up key press 
  
 
 enhance config
@@ -91,13 +87,7 @@ add code to trash deleted or moved and duplicates
 
 select  config file in UI
 add/delete tags in UI
-
 add/delete dirs in UI
-
-
-
-
-selector has cached info on stats that get updated on close
 
 
 
@@ -105,13 +95,9 @@ playlist shown as buttons are selected
 
 
 
-space bar action selected box toggles or close box executes
-rating and better  larger font,
 
 
 
-
-query results saved or played
 
 Additional key bindings:
 

@@ -68,9 +68,9 @@ public class Player {
 	private Label playTimeLabel;
 	private Label muteSpeedLabel;
 	
-//	static final Double HSIZE = 3360.0; 
+	static final Double HSIZE = 3360.0; 
 //	static final Double HSIZE = 2560.0;
-	static final Double HSIZE = 1580.0;
+//	static final Double HSIZE = 1580.0;
 //	static final Double HSIZE = 1920.0;
 	
 	static final Double VSIZE = (HSIZE * 0.5626); // 16:9
