@@ -203,7 +203,7 @@ public class Player {
                 // Save the image to the configured picDirectory with a timestamped filename
                 try {
                     String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                    String filename = config.picDirectory + File.separator + nowPlayingName + timestamp + ".jpg";
+                    String filename = config.picDirectory + File.separator + nowPlayingName + timestamp + ".png";
                     File outputFile = new File(filename);
                     ImageIO.write(
                         SwingFXUtils.fromFXImage(wim, null),
