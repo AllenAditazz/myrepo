@@ -1,7 +1,7 @@
 package allen;
 
 import java.io.File;
-//import javafx.embed.swing.SwingFXUtils;
+
 import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import javax.imageio.ImageIO;
 
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -43,6 +45,7 @@ import javafx.scene.media.MediaView;
 import javafx.scene.robot.Robot;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.embed.swing.SwingFXUtils;
 
 public class Player {
 	
@@ -194,14 +197,23 @@ public class Player {
 		snapButton.setOnAction(new EventHandler<ActionEvent>() {			  
             @Override
             public void handle(ActionEvent event) {
-            	Path pic = Paths.get(config.picDirectory);
-            	WritableImage wim = new WritableImage(HSIZE.intValue() , VSIZE.intValue());   	
-            	mediaView.snapshot(null, wim);
-//            	 try {
-//            	   ImageIO.write(SwingFXUtils.fromFXImage(wim, null), "png", new File("/test.png"));
-//            	 } catch (Exception s) {
-//            	   System.out.println(s);
-//            	 }
+                // Create a snapshot of the mediaView
+                WritableImage wim = new WritableImage(HSIZE.intValue(), VSIZE.intValue());
+                mediaView.snapshot(null, wim);
+                // Save the image to the configured picDirectory with a timestamped filename
+                try {
+                    String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                    String filename = config.picDirectory + File.separator + nowPlayingName + timestamp + ".jpg";
+                    File outputFile = new File(filename);
+                    ImageIO.write(
+                        SwingFXUtils.fromFXImage(wim, null),
+                        "png",
+                        outputFile
+                    );
+                    Utility.msg(ta, "Snapshot saved: " + filename);
+                } catch (Exception ex) {
+                    Utility.msg(ta, "Error saving snapshot: " + ex.getMessage());
+                }
             }
         });
 		
@@ -251,7 +263,7 @@ public class Player {
 
 		// Create the HBox
 		HBox controlBox = new HBox(5, playListSizeLabel, playPauseButton, closeButton, 
-				closeUpdateButton, moreButton,  clipRez,  playsLabel, muteSpeedLabel, deletedLabel, ratingLabel, timeSlider, playTimeLabel);
+				closeUpdateButton, moreButton,  snapButton, clipRez,  playsLabel, muteSpeedLabel, deletedLabel, ratingLabel, timeSlider, playTimeLabel);
 		controlBox.setAlignment(Pos.CENTER);
 
 
@@ -747,5 +759,3 @@ public class Player {
  
 	 
 }
-
-

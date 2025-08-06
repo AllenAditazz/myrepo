@@ -5,7 +5,7 @@ turn off default key behavior for space and arrows
 
 fix right arrow advance at end of clip
 
-key press to exit player  (implemented q)
+
 
 store length of files in config and display
 
@@ -36,26 +36,15 @@ Remove any non null ff output
 
 
 
-
-
-
-
-
 add date toString for vids
 
 
 buttons for playing new videos or playing unrated (reset all selections too)
 
 
-
-
-
 clean up messages esp moved messages and use of sysout
 
 Swipe mouse to advance and volume use scroll gesture
-
-
-
 
 
 delete dups and non meda files 
