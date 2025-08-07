@@ -183,12 +183,11 @@ public class Player {
 		Button moreButton = new Button("More");
 		moreButton.setOnAction(new EventHandler<ActionEvent>() {			  
             @Override
-            public void handle(ActionEvent event) {
-// no op java media dies            	
-//            	nowPlayingPlayer.pause();
-//            	nextPlayingIndex = playerList.size() - 1;    //when resumed we play newly added videos
-//            	createOrAugmentPlayerList();
-//        		playNextClip();
+            public void handle(ActionEvent event) {         	
+            	nowPlayingPlayer.pause();
+            	nextPlayingIndex = playerList.size() - 1;    //when resumed we play newly added videos
+            	createOrAugmentPlayerList();
+        		playNextClip();
                 
             }
         });
@@ -203,7 +202,7 @@ public class Player {
                 // Save the image to the configured picDirectory with a timestamped filename
                 try {
                     String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                    String filename = config.picDirectory + File.separator + nowPlayingName + timestamp + ".png";
+                    String filename = config.picDirectory + File.separator + nowPlayingName + timestamp + ".p";
                     File outputFile = new File(filename);
                     ImageIO.write(
                         SwingFXUtils.fromFXImage(wim, null),

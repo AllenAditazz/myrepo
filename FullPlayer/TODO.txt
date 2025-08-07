@@ -15,7 +15,6 @@ restore "more" button
 
 make search simple
 
-snapshot using  scene.snapshop
 
 display info about first video being played
 
