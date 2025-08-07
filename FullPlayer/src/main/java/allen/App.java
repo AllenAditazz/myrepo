@@ -167,6 +167,8 @@ public class App extends Application {
 		HBox ratingPane = new HBox(15);
 		controlPane.getChildren().add(ratingPane);
 		CheckBox unratedCheckBox = new CheckBox("Unrated");
+
+		
 		ratingPane.getChildren().add(unratedCheckBox);
 		Label ratingLabel = new Label("Rating");
 		ratingPane.getChildren().add(ratingLabel);
@@ -176,6 +178,20 @@ public class App extends Application {
 		ratingPane.getChildren().add(ratingLevelsBox);
 		CheckBox exactRating = new CheckBox("Exact Rating");
 		ratingPane.getChildren().add(exactRating);
+		
+		
+		
+		unratedCheckBox.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent event) {
+		        // Deselect all tagCheckBoxes
+		        for (CheckBox cb : tagCheckBoxes) {
+		            cb.setSelected(false);
+		        }
+		        // Set ratingLevelsBox to "all"
+		        ratingLevelsBox.setValue("all");
+		    }
+		});
 
 		// number of clips
 		HBox numberOfClipsPane = new HBox(15);
@@ -193,6 +209,18 @@ public class App extends Application {
 		controlPane.getChildren().add(playFrequencyPane);
 		RadioButton unPlayedRadio = new RadioButton("Unplayed");
 		playFrequencyPane.getChildren().add(unPlayedRadio);
+		// Add event handler to unPlayedRadio
+		unPlayedRadio.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent event) {
+		        // Deselect all tagCheckBoxes
+		        for (CheckBox cb : tagCheckBoxes) {
+		            cb.setSelected(false);
+		        }
+		        // Set ratingLevelsBox to "all"
+		        ratingLevelsBox.setValue("all");
+		    }
+		});
 		RadioButton lessThan3Radio = new RadioButton("less than 3");
 		playFrequencyPane.getChildren().add(lessThan3Radio);
 		RadioButton lessThan5Radio = new RadioButton("less than 5");
