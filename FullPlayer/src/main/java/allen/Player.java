@@ -73,7 +73,7 @@ public class Player {
 	
 	static final Double HSIZE = 3360.0; 
 //	static final Double HSIZE = 2560.0;
-//	static final Double HSIZE = 1580.0;
+//	static final Double HSIZE = 1450.0;
 //	static final Double HSIZE = 1920.0;
 	
 	static final Double VSIZE = (HSIZE * 0.5626); // 16:9
@@ -202,7 +202,7 @@ public class Player {
                 // Save the image to the configured picDirectory with a timestamped filename
                 try {
                     String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-                    String filename = config.picDirectory + File.separator + nowPlayingName + timestamp + ".p";
+                    String filename = config.picDirectory + File.separator + nowPlayingName + timestamp + ".png";
                     File outputFile = new File(filename);
                     ImageIO.write(
                         SwingFXUtils.fromFXImage(wim, null),
@@ -557,8 +557,11 @@ public class Player {
 //			System.out.println("Key released Right key current: " + current.toSeconds() + "next: " + next.toSeconds()); 
 //			System.out.println("Key released stop time: " +  nowPlayingPlayer.getStopTime().toSeconds()); 
 			
-			if(current.greaterThan(nearEnd))  
-				nowPlayingPlayer.seek(end);
+			if(current.greaterThan(nearEnd)) {
+	        	nowPlayingPlayer.pause();
+	        	playNextClip();
+			}
+				
 			else if (next.greaterThan(nearEnd))
 				nowPlayingPlayer.seek(nearEnd);
 			else

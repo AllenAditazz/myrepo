@@ -1,17 +1,16 @@
 
-create one media object at a time.  Keep player position programmatically.
+
 
 turn off default key behavior for space and arrows
 
-fix right arrow advance at end of clip
+add all none buttons to file and tag
 
 
 
 store length of files in config and display
 
-insure inconsistent player specs don't occur  (e.g. unplayed and rated selected)
 
-restore "more" button
+
 
 make search simple
 
@@ -22,11 +21,9 @@ fix bug in move message that doesn't display original file location
 
 make file conversion work
 
-reset to uncheck all selection choices
+
 
 set screen size for player in config pane
-
-
 
 
 
@@ -60,11 +57,6 @@ display rating
 
 
 
-
-
-
- 
-
 enhance config
 
 add code to trash deleted or moved and duplicates
@@ -80,10 +72,6 @@ add/delete dirs in UI
 
 
 playlist shown as buttons are selected
-
-
-
-
 
 
 

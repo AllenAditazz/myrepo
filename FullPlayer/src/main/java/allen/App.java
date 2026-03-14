@@ -182,15 +182,17 @@ public class App extends Application {
 		
 		
 		unratedCheckBox.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override
-		    public void handle(ActionEvent event) {
-		        // Deselect all tagCheckBoxes
-		        for (CheckBox cb : tagCheckBoxes) {
-		            cb.setSelected(false);
-		        }
-		        // Set ratingLevelsBox to "all"
-		        ratingLevelsBox.setValue("all");
-		    }
+			@Override
+			public void handle(ActionEvent event) {
+				// Deselect all tagCheckBoxes
+				if (unratedCheckBox.isSelected()) {
+					for (CheckBox cb : tagCheckBoxes) {
+						cb.setSelected(false);
+					}
+					// Set ratingLevelsBox to "all"
+					ratingLevelsBox.setValue("all");
+				}
+			}
 		});
 
 		// number of clips
@@ -211,15 +213,17 @@ public class App extends Application {
 		playFrequencyPane.getChildren().add(unPlayedRadio);
 		// Add event handler to unPlayedRadio
 		unPlayedRadio.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override
-		    public void handle(ActionEvent event) {
-		        // Deselect all tagCheckBoxes
-		        for (CheckBox cb : tagCheckBoxes) {
-		            cb.setSelected(false);
-		        }
-		        // Set ratingLevelsBox to "all"
-		        ratingLevelsBox.setValue("all");
-		    }
+			@Override
+			public void handle(ActionEvent event) {
+				if (unPlayedRadio.isSelected()) {
+					// Deselect all tagCheckBoxes
+					for (CheckBox cb : tagCheckBoxes) {
+						cb.setSelected(false);
+					}
+					// Set ratingLevelsBox to "all"
+					ratingLevelsBox.setValue("all");
+				}
+			}
 		});
 		RadioButton lessThan3Radio = new RadioButton("less than 3");
 		playFrequencyPane.getChildren().add(lessThan3Radio);
