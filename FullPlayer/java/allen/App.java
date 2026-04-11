@@ -33,6 +33,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.ScrollPane; // added to allow scrolling when chooser is wide
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -91,13 +92,25 @@ public class App extends Application {
 		// UI elements
 		TabPane tabPane = new TabPane();
 
+		// Make the chooser area a FlowPane (tagPane, dirPane, control pane)
 		FlowPane topLevelPaneChooser = new FlowPane(); // tagPane, dirPane, control pane
+		// Give the FlowPane a larger preferred wrap length and width so it doesn't wrap too early
+		topLevelPaneChooser.setPrefWrapLength(900);
+		topLevelPaneChooser.setPrefWidth(900);
+		topLevelPaneChooser.setVgap(20);
+		topLevelPaneChooser.setHgap(40);
+		topLevelPaneChooser.setStyle("-fx-border-color: black");
+		topLevelPaneChooser.setPadding(new Insets(10, 10, 10, 10));
+		// Wrap the FlowPane in a ScrollPane so the chooser can expand horizontally
+		ScrollPane chooserScroll = new ScrollPane(topLevelPaneChooser);
+		chooserScroll.setFitToWidth(true);
+		chooserScroll.setPannable(true);
 
 		// Analysis Pane
 		VBox analysisPane = new VBox(5);
 		HBox commandsPane = new HBox(15);
 
-		Tab tab1 = new Tab("Chooser", topLevelPaneChooser);
+		Tab tab1 = new Tab("Chooser", chooserScroll);
 		tabPane.getTabs().add(tab1);
 		Tab tab2 = new Tab("Config", analysisPane);
 		tabPane.getTabs().add(tab2);
@@ -120,11 +133,6 @@ public class App extends Application {
 		analysisText.setPrefRowCount(40);
 		analysisText.setWrapText(true);
 		analysisPane.getChildren().add(analysisText);
-
-		topLevelPaneChooser.setVgap(20);
-		topLevelPaneChooser.setHgap(40);
-		topLevelPaneChooser.setStyle("-fx-border-color: black");
-		topLevelPaneChooser.setPadding(new Insets(10, 10, 10, 10));
 
 		// tag pane
 		VBox tagPane = new VBox(10); // check box for each tag plus an "and" box
@@ -178,7 +186,6 @@ public class App extends Application {
 		ratingPane.getChildren().add(ratingLevelsBox);
 		CheckBox exactRating = new CheckBox("Exact Rating");
 		ratingPane.getChildren().add(exactRating);
-		
 		
 		
 		unratedCheckBox.setOnAction(new EventHandler<ActionEvent>() {
@@ -326,10 +333,10 @@ public class App extends Application {
 				numberToInitiallyPlay = 20;
 				if (!(numClipsS == null))
 					try {
-					numberToInitiallyPlay = Integer.parseInt(numClipsS);
+				numberToInitiallyPlay = Integer.parseInt(numClipsS);
 					}
 					catch(NumberFormatException nfe) {
-						numberToInitiallyPlay = 20;
+					numberToInitiallyPlay = 20;
 					}
 
 				// plays
@@ -375,7 +382,6 @@ public class App extends Application {
 		});
 		
 		
-
 
 		convertButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -491,7 +497,7 @@ public class App extends Application {
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							//e.printStackTrace();
-						}	
+						} 	
 						
 
 						}
@@ -539,6 +545,7 @@ public class App extends Application {
 				new FileMover(config, analysisText);
 			}
 		});
+
 
 
 
