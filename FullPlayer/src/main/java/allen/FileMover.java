@@ -18,8 +18,6 @@ import static java.nio.file.StandardCopyOption.*;
 import java.awt.Desktop;
 
 import javafx.scene.control.TextArea;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaException;
 
 
 public class FileMover {
@@ -111,7 +109,7 @@ public class FileMover {
 				try {
 					Path destinationPath  =  Paths.get(destinationDir.toString(), p.getFileName().toString());
 					Files.move(p, destinationPath, REPLACE_EXISTING);
-					boolean isPlaybale = Utility.isFXSupportedMedia(destinationPath, msg);
+					boolean isPlaybale = Utility.isSupportedMedia(destinationPath, msg);
 					Video vid =  isPlaybale ? new Video(destinationPath) :   new Video(destinationPath, Config.BAD_CODEC);
 					List<Video>  newVids = new ArrayList<Video>();
 					newVids.add(vid);

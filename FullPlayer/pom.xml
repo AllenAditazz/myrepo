@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>allen</groupId>
-    <artifactId>mediaMavenNonModuler</artifactId>
+    <artifactId>FullPlayer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,21 +16,28 @@
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-        <dependency>
-      		<groupId>org.openjfx</groupId>
-      		<artifactId>javafx-media</artifactId>
-      		<version>${javafx.version}</version>
-    	</dependency>
     	<dependency>
     		<groupId>org.openjfx</groupId>
     		<artifactId>javafx-swing</artifactId>
-   			<version>24.0.2</version>
+   			<version>${javafx.version}</version>
 		</dependency>
 
         <dependency>
         	<groupId>org.yaml</groupId>
         	<artifactId>snakeyaml</artifactId>
         	<version>1.30</version>
+        </dependency>
+
+        <!-- VideoLAN (libvlc) playback engine, replaces javafx-media -->
+        <dependency>
+        	<groupId>uk.co.caprica</groupId>
+        	<artifactId>vlcj</artifactId>
+        	<version>4.12.1</version>
+        </dependency>
+        <dependency>
+        	<groupId>uk.co.caprica</groupId>
+        	<artifactId>vlcj-javafx</artifactId>
+        	<version>1.2.1</version>
         </dependency>
 
     </dependencies>
@@ -54,7 +61,7 @@
                         <!-- Usage: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>allen.mediaMavenNonModuler.App</mainClass>
+                            <mainClass>allen.App</mainClass>
                         </configuration>
                     </execution>
                 </executions>

@@ -16,14 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Pane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaException;
-import javafx.scene.media.MediaView;
-import javafx.stage.Stage;
 
 public class MediaConverter {
 
@@ -50,7 +43,7 @@ public class MediaConverter {
 			
 			
 			//if (output.startsWith("FAIL") || output.indexOf("Video: hevc (Main)") > 0)
-			if (output.startsWith("FAIL") ||  out.length() == 0  ||  ! Utility.isFXSupportedMedia(Path.of(fnewModified), msg))
+			if (output.startsWith("FAIL") ||  out.length() == 0  ||  ! Utility.isSupportedMedia(Path.of(fnewModified), msg))
 				output = convertFile(foldModified, fnewModified, msg, true);
 		}
 
@@ -63,7 +56,7 @@ public class MediaConverter {
 		}
 
 		File out = new File(fnewModified);
-		if (out.length() > 0 && ! output.startsWith("FAIL") &&  Utility.isFXSupportedMedia(Path.of(fnew), msg) ) {
+		if (out.length() > 0 && ! output.startsWith("FAIL") &&  Utility.isSupportedMedia(Path.of(fnew), msg) ) {
 			Utility.msg(msg, "Transcoding succeeded on vid", v.toString());
 			v.addTag(Config.CONVERTED);
 			v.removeTag(Config.BAD_CODEC);

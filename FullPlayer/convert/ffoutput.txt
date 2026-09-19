@@ -1,0 +1,305 @@
+ff output: 	 transcodedInput #0, matroska,webm, from '/Volumes/WD14/a/convert/SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT.mkv':
+  Metadata:
+    title           : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+    COMMENT         : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+    MAJOR_BRAND     : mp42
+    MINOR_VERSION   : 512
+    COMPATIBLE_BRANDS: isomiso2mp41
+    ENCODER         : Lavf58.20.100
+  Duration: 00:28:56.68, start: 0.000000, bitrate: 1870 kb/s
+  Stream #0:0: Video: hevc (Main), yuv420p(tv, bt709), 1920x1080 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 1k tbn (default)
+    Metadata:
+      title           : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : VideoHandler
+      DURATION        : 00:28:56.679000000
+  Stream #0:1(eng): Audio: aac (LC), 44100 Hz, stereo, fltp (default)
+    Metadata:
+      title           : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : SoundHandler
+      DURATION        : 00:28:56.643000000
+Output #0, mp4, to '/Volumes/WD14/a/converted/SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT.mp4':
+  Metadata:
+    title           : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+    COMMENT         : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+    MAJOR_BRAND     : mp42
+    MINOR_VERSION   : 512
+    COMPATIBLE_BRANDS: isomiso2mp41
+    encoder         : Lavf59.17.102
+  Stream #0:0: Video: hevc (Main) (hev1 / 0x31766568), yuv420p(tv, bt709), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 30 tbr, 16k tbn (default)
+    Metadata:
+      title           : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : VideoHandler
+      DURATION        : 00:28:56.679000000
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp (default)
+    Metadata:
+      title           : SexMex.22.03.11.Jessica.Sodi.Seduced.By.Her.Neighbor.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : SoundHandler
+      DURATION        : 00:28:56.643000000
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+frame=    1 fps=0.0 q=-1.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=   0x    
+frame= 3042 fps=0.0 q=-1.0 size=   19200kB time=00:01:41.35 bitrate=1551.8kbits/s speed= 202x    
+frame= 5326 fps=5286 q=-1.0 size=   34560kB time=00:02:57.51 bitrate=1594.9kbits/s speed= 176x    
+frame= 8537 fps=5662 q=-1.0 size=   53760kB time=00:04:44.51 bitrate=1547.9kbits/s speed= 189x    
+frame=11943 fps=5884 q=-1.0 size=   74496kB time=00:06:38.08 bitrate=1533.0kbits/s speed= 196x    
+frame=15405 fps=6063 q=-1.0 size=   99072kB time=00:08:33.48 bitrate=1580.6kbits/s speed= 202x    
+frame=19364 fps=6254 q=-1.0 size=  129536kB time=00:10:45.44 bitrate=1644.1kbits/s speed= 208x    
+frame=23253 fps=6466 q=-1.0 size=  158720kB time=00:12:55.05 bitrate=1677.6kbits/s speed= 216x    
+frame=26352 fps=6422 q=-1.0 size=  184832kB time=00:14:38.38 bitrate=1723.8kbits/s speed= 214x    
+frame=29785 fps=6463 q=-1.0 size=  212480kB time=00:16:32.81 bitrate=1753.2kbits/s speed= 215x    
+frame=33124 fps=6484 q=-1.0 size=  238336kB time=00:18:24.08 bitrate=1768.4kbits/s speed= 216x    
+frame=37337 fps=6648 q=-1.0 size=  267520kB time=00:20:44.51 bitrate=1760.9kbits/s speed= 222x    
+frame=40361 fps=6574 q=-1.0 size=  298240kB time=00:22:25.34 bitrate=1816.0kbits/s speed= 219x    
+frame=43537 fps=6558 q=-1.0 size=  325376kB time=00:24:11.22 bitrate=1836.7kbits/s speed= 219x    
+frame=46790 fps=6553 q=-1.0 size=  353280kB time=00:25:59.66 bitrate=1855.6kbits/s speed= 218x    
+frame=50504 fps=6591 q=-1.0 size=  384000kB time=00:28:03.44 bitrate=1868.6kbits/s speed= 220x    
+frame=52099 fps=6618 q=-1.0 Lsize=  397731kB time=00:28:56.64 bitrate=1876.2kbits/s speed= 221x    
+video:361481kB audio:34146kB subtitle:0kB other streams:0kB global headers:2kB muxing overhead: 0.531930%
+ 	 
+
+ 	 
+ 	 
+ 	 
+ 	 ff output: 	 muxed [wmv3 @ 0x7fc8a6205840] Extra data: 8 bits left, value: 0
+Guessed Channel Layout for Input Stream #0.0 : stereo
+Input #0, asf, from '/Users/atg/git/repository/FullPlayer/base/convert/p299hc33.wmv':
+  Metadata:
+    SfOriginalFPS   : 299700
+    WMFSDKVersion   : 12.0.7601.17514
+    WMFSDKNeeded    : 0.0.0.0000
+    comment         : BDSM, spanking, whipping, caning
+    title           : Paintoy Video
+    artist          : Mead Hall Productions
+    copyright       : 2012
+    IsVBR           : 0
+    DeviceConformanceTemplate: MP@ML
+    NumberOfFrames  : 17243
+  Duration: 00:09:35.81, start: 0.000000, bitrate: 1617 kb/s
+  Stream #0:0(eng): Audio: wmav2 (a[1][0][0] / 0x0161), 44100 Hz, stereo, fltp, 44 kb/s
+  Stream #0:1(eng): Video: wmv3 (Main) (WMV3 / 0x33564D57), yuv420p, 640x480, 1572 kb/s, SAR 4:3 DAR 16:9, 29.97 fps, 29.97 tbr, 1k tbn
+[mp4 @ 0x7fc8a6207900] Could not find tag for codec wmv3 in stream #0, codec not currently supported in container
+Could not write header for output file #0 (incorrect codec parameters ?): Invalid argument
+Error initializing output stream 0:1 -- 
+Stream mapping:
+  Stream #0:1 -> #0:0 (copy)
+  Stream #0:0 -> #0:1 (copy)
+    Last message repeated 1 times
+ 	 
+ffmpeg transcode failed on /Users/atg/git/repository/FullPlayer/base/convert/p299hc33.wmv 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 muxing file/Users/atg/git/repository/FullPlayer/base/convert/NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT.mkv 	 
+ff output: 	 muxed Input #0, matroska,webm, from '/Users/atg/git/repository/FullPlayer/base/convert/NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT.mkv':
+  Metadata:
+    title           : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+    COMMENT         : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+    MAJOR_BRAND     : mp42
+    MINOR_VERSION   : 512
+    COMPATIBLE_BRANDS: isomiso2mp41
+    ENCODER         : Lavf58.20.100
+  Duration: 00:44:18.99, start: 0.000000, bitrate: 1179 kb/s
+  Stream #0:0: Video: hevc (Main), yuv420p(tv, bt709), 1280x720 [SAR 1:1 DAR 16:9], 30 fps, 30 tbr, 1k tbn (default)
+    Metadata:
+      title           : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+      HANDLER_NAME    : VideoHandler
+      DURATION        : 00:44:18.987000000
+  Stream #0:1(eng): Audio: aac (LC), 48000 Hz, stereo, fltp (default)
+    Metadata:
+      title           : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+      HANDLER_NAME    : SoundHandler
+      DURATION        : 00:44:18.943000000
+Output #0, mp4, to '/Users/atg/git/repository/FullPlayer/base/converted/NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT.mp4':
+  Metadata:
+    title           : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+    COMMENT         : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+    MAJOR_BRAND     : mp42
+    MINOR_VERSION   : 512
+    COMPATIBLE_BRANDS: isomiso2mp41
+    encoder         : Lavf59.17.102
+  Stream #0:0: Video: hevc (Main) (hev1 / 0x31766568), yuv420p(tv, bt709), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 30 fps, 30 tbr, 16k tbn (default)
+    Metadata:
+      title           : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+      HANDLER_NAME    : VideoHandler
+      DURATION        : 00:44:18.987000000
+  Stream #0:1(eng): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp (default)
+    Metadata:
+      title           : NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT
+      HANDLER_NAME    : SoundHandler
+      DURATION        : 00:44:18.943000000
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+frame=    1 fps=0.0 q=-1.0 size=       0kB time=00:00:00.00 bitrate=N/A speed=N/A    
+frame=36950 fps=0.0 q=-1.0 size=  176384kB time=00:20:31.63 bitrate=1173.2kbits/s speed=2.46e+03x    
+frame=77102 fps=77102 q=-1.0 size=  371968kB time=00:42:50.04 bitrate=1185.6kbits/s speed=2.57e+03x    
+frame=79768 fps=75842 q=-1.0 Lsize=  384688kB time=00:44:18.94 bitrate=1185.2kbits/s speed=2.53e+03x    
+video:339988kB audio:41473kB subtitle:0kB other streams:0kB global headers:2kB muxing overhead: 0.845767%
+ 	 
+ffmpeg succeded on /Users/atg/git/repository/FullPlayer/base/convert/NaughtyMidwestGirls.E217.Mella.Megan.Babysitter.Interview.XXX.720p.HEVC.x265.PRT.mkv 
+transcode interrupted by me
+
+
+
+ff output: 	 muxed [avi @ 0x7fde890042c0] Format avi detected only with low score of 1, misdetection possible!
+/Users/atg/git/repository/FullPlayer/base/convert/divxfactory-blsq6b.avi: Invalid data found when processing input
+ 	 
+ffmpeg transcode/mux failed on /Users/atg/git/repository/FullPlayer/base/convert/divxfactory-blsq6b.avi 	 
+transcoding file 	 
+ff output: 	 transcoded [avi @ 0x7ff17c804340] Format avi detected only with low score of 1, misdetection possible!
+/Users/atg/git/repository/FullPlayer/base/convert/divxfactory-blsq6b.avi: Invalid data found when processing input
+
+
+
+
+transcoded Input #0, matroska,webm, from '/Users/atg/git/repository/FullPlayer/base/convert/TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT.mkv':
+  Metadata:
+    title           : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+    COMMENT         : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+    MAJOR_BRAND     : mp42
+    MINOR_VERSION   : 512
+    COMPATIBLE_BRANDS: isomiso2mp41
+    ENCODER         : Lavf58.20.100
+  Duration: 00:19:50.81, start: 0.000000, bitrate: 1915 kb/s
+  Stream #0:0: Video: hevc (Main), yuv420p(tv, bt709), 1920x1080 [SAR 1:1 DAR 16:9], 23.98 fps, 23.98 tbr, 1k tbn (default)
+    Metadata:
+      title           : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : VideoHandler
+      DURATION        : 00:19:50.774000000
+  Stream #0:1: Audio: aac (LC), 48000 Hz, stereo, fltp (default)
+    Metadata:
+      title           : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : SoundHandler
+      DURATION        : 00:19:50.805000000
+Stream mapping:
+  Stream #0:0 -> #0:0 (hevc (native) -> h264 (libx264))
+  Stream #0:1 -> #0:1 (aac (native) -> aac (native))
+Press [q] to stop, [?] for help
+[libx264 @ 0x7ff0d8f042c0] using SAR=1/1
+[libx264 @ 0x7ff0d8f042c0] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 0x7ff0d8f042c0] profile High, level 4.0, 4:2:0, 8-bit
+[libx264 @ 0x7ff0d8f042c0] 264 - core 164 r3086 5585eaf - H.264/MPEG-4 AVC codec - Copyleft 2003-2022 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=12 lookahead_threads=2 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=23 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=23.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to '/Users/atg/git/repository/FullPlayer/base/converted/TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT.mp4':
+  Metadata:
+    title           : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+    COMMENT         : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+    MAJOR_BRAND     : mp42
+    MINOR_VERSION   : 512
+    COMPATIBLE_BRANDS: isomiso2mp41
+    encoder         : Lavf59.17.102
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 23.98 fps, 24k tbn (default)
+    Metadata:
+      title           : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : VideoHandler
+      DURATION        : 00:19:50.774000000
+      encoder         : Lavc59.21.100 libx264
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      title           : TrueAmateurs.22.03.11.Valerica.Steele.XXX.1080p.HEVC.x265.PRT
+      HANDLER_NAME    : SoundHandler
+      DURATION        : 00:19:50.805000000
+      encoder         : Lavc59.21.100 aac
+frame=    2 fps=0.0 q=0.0 size=       0kB time=00:00:00.34 bitrate=   1.1kbits/s dup=1 drop=0 speed=10.8x    
+frame=   72 fps=0.0 q=28.0 size=       0kB time=00:00:03.26 bitrate=   0.1kbits/s dup=1 drop=0 speed=6.14x    
+frame=  139 fps=131 q=28.0 size=       0kB time=00:00:06.08 bitrate=   0.1kbits/s dup=1 drop=0 speed=5.75x    
+frame=  174 fps=110 q=28.0 size=     256kB time=00:00:07.53 bitrate= 278.5kbits/s dup=1 drop=0 speed=4.76x    
+frame=  197 fps= 92 q=28.0 size=     512kB time=00:00:08.49 bitrate= 494.0kbits/s dup=1 drop=0 speed=3.97x    
+frame=  226 fps= 85 q=28.0 size=     768kB time=00:00:09.70 bitrate= 648.2kbits/s dup=1 drop=0 speed=3.65x    
+frame=  254 fps= 79 q=28.0 size=    1024kB time=00:00:10.88 bitrate= 771.0kbits/s dup=1 drop=0 speed=3.37x    
+frame=  279 fps= 74 q=28.0 size=    1280kB time=00:00:11.92 bitrate= 879.3kbits/s dup=1 drop=0 speed=3.15x    
+frame=  305 fps= 70 q=28.0 size=    1536kB time=00:00:12.99 bitrate= 968.5kbits/s dup=1 drop=0 speed=   3x    
+frame=  328 fps= 67 q=28.0 size=    1792kB time=00:00:13.95 bitrate=1052.2kbits/s dup=1 drop=0 speed=2.84x    
+frame=  345 fps= 64 q=28.0 size=    2048kB time=00:00:14.67 bitrate=1143.1kbits/s dup=1 drop=0 speed=2.71x    
+frame=  363 fps= 61 q=28.0 size=    2304kB time=00:00:15.42 bitrate=1223.7kbits/s dup=1 drop=0 speed=2.61x    
+
+
+
+
+
+
+
+
+ff output: 	 muxed [wmv3 @ 0x7f96cb904a00] Extra data: 8 bits left, value: 0
+Guessed Channel Layout for Input Stream #0.0 : stereo
+Input #0, asf, from '/Users/atg/git/repository/FullPlayer/base/convert/p299hc33.wmv':
+  Metadata:
+    SfOriginalFPS   : 299700
+    WMFSDKVersion   : 12.0.7601.17514
+    WMFSDKNeeded    : 0.0.0.0000
+    comment         : BDSM, spanking, whipping, caning
+    title           : Paintoy Video
+    artist          : Mead Hall Productions
+    copyright       : 2012
+    IsVBR           : 0
+    DeviceConformanceTemplate: MP@ML
+    NumberOfFrames  : 17243
+  Duration: 00:09:35.81, start: 0.000000, bitrate: 1617 kb/s
+  Stream #0:0(eng): Audio: wmav2 (a[1][0][0] / 0x0161), 44100 Hz, stereo, fltp, 44 kb/s
+  Stream #0:1(eng): Video: wmv3 (Main) (WMV3 / 0x33564D57), yuv420p, 640x480, 1572 kb/s, SAR 4:3 DAR 16:9, 29.97 fps, 29.97 tbr, 1k tbn
+[mp4 @ 0x7f96cb906100] Could not find tag for codec wmv3 in stream #0, codec not currently supported in container
+Could not write header for output file #0 (incorrect codec parameters ?): Invalid argument
+Error initializing output stream 0:1 -- 
+Stream mapping:
+  Stream #0:1 -> #0:0 (copy)
+  Stream #0:0 -> #0:1 (copy)
+    Last message repeated 1 times
+    
+    
+    
+    
+    muxing file/Users/atg/git/repository/FullPlayer/base/convert/Femdom Strapon Dillion Harper & Holly Michaels.flv 	 
+ff output: 	 muxed [flv @ 0x7faa9bf04500] Packet mismatch 1150681088 17558 17558
+Input #0, flv, from '/Users/atg/git/repository/FullPlayer/base/convert/Femdom Strapon Dillion Harper & Holly Michaels.flv':
+  Metadata:
+    audiosize       : 15296271
+    canSeekToEnd    : true
+    datasize        : 104363562
+    videosize       : 87088003
+    hasAudio        : true
+    hasCuePoints    : false
+    hasKeyframes    : true
+    hasMetadata     : true
+    hasVideo        : true
+    lasttimestamp   : 1875
+    metadatacreator : flvtool++ (Facebook, Motion project, dweatherford)
+    metadatadate    : 2016-10-22T21:28:35.422000Z
+    totalframes     : 46880
+    encoder         : Lavf57.41.100
+  Duration: 00:31:15.17, start: 0.000000, bitrate: 445 kb/s
+  Stream #0:0: Video: h264 (Main), yuv420p(progressive), 640x360 [SAR 1:1 DAR 16:9], 25 fps, 25 tbr, 1k tbn
+  Stream #0:1: Audio: aac (LC), 44100 Hz, stereo, fltp, 64 kb/s
+Output #0, mp4, to '/Users/atg/git/repository/FullPlayer/base/converted/Femdom Strapon Dillion Harper & Holly Michaels.mp4':
+  Metadata:
+    audiosize       : 15296271
+    canSeekToEnd    : true
+    datasize        : 104363562
+    videosize       : 87088003
+    hasAudio        : true
+    hasCuePoints    : false
+    hasKeyframes    : true
+    hasMetadata     : true
+    hasVideo        : true
+    lasttimestamp   : 1875
+    metadatacreator : flvtool++ (Facebook, Motion project, dweatherford)
+    metadatadate    : 2016-10-22T21:28:35.422000Z
+    totalframes     : 46880
+    encoder         : Lavf59.17.102
+  Stream #0:0: Video: h264 (Main) (avc1 / 0x31637661), yuv420p(progressive), 640x360 [SAR 1:1 DAR 16:9], q=2-31, 25 fps, 25 tbr, 16k tbn
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 64 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+frame=    0 fps=0.0 q=-1.0 size=       0kB time=00:00:00.02 bitrate=  16.5kbits/s speed=N/A    
+frame=38159 fps=0.0 q=-1.0 size=   77824kB time=00:25:26.38 bitrate= 417.7kbits/s speed=3.05e+03x    
+frame=46878 fps=0.0 q=-1.0 Lsize=  100818kB time=00:31:15.12 bitrate= 440.5kbits/s speed=3e+03x    
+video:84864kB audio:14780kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.178787%
+
