@@ -95,8 +95,8 @@ public class App extends Application {
 		// Make the chooser area a FlowPane (tagPane, dirPane, control pane)
 		FlowPane topLevelPaneChooser = new FlowPane(); // tagPane, dirPane, control pane
 		// Give the FlowPane a larger preferred wrap length and width so it doesn't wrap too early
-		topLevelPaneChooser.setPrefWrapLength(900);
-		topLevelPaneChooser.setPrefWidth(900);
+		topLevelPaneChooser.setPrefWrapLength(1000);
+		topLevelPaneChooser.setPrefWidth(1000);
 		topLevelPaneChooser.setVgap(20);
 		topLevelPaneChooser.setHgap(40);
 		topLevelPaneChooser.setStyle("-fx-border-color: black");
