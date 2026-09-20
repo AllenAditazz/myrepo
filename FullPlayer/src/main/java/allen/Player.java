@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -69,6 +71,12 @@ public class Player {
 	private int numberOfClipsRequestedToPlay;
 
 	private Video currentVideo;
+
+	// remembers, per video, the playback position (ms) we were at when we
+	// last switched away from it, so cycling back to it later resumes instead
+	// of restarting from the beginning. Session-only, like the old per-video
+	// MediaPlayer objects were - not persisted to the config file.
+	private final Map<Video, Long> resumePositions = new HashMap<>();
 
 	//UI elements that may be updated
 	private Slider timeSlider;
@@ -337,6 +345,9 @@ public class Player {
 	 * caught asynchronously by PlayerEvents.error once libvlc tries them.
 	 */
 	private void playClip(int batchIndex) {
+		if (currentVideo != null) {
+			resumePositions.put(currentVideo, mediaPlayer.status().time());
+		}
 		int attempts = 0;
 		while (attempts < numberOfClipsOnPlayerList) {
 			Video vid = playList.get(batchIndex);
@@ -357,7 +368,13 @@ public class Player {
 			nowPlayingName = vid.fileName;
 			nowPlayingDuration = Duration.UNKNOWN;
 
-			mediaPlayer.media().play(mediaFile.getAbsolutePath());
+			Long resumeMs = resumePositions.get(vid);
+			if (resumeMs != null && resumeMs > 0) {
+				mediaPlayer.media().play(mediaFile.getAbsolutePath(),
+						String.format(java.util.Locale.US, ":start-time=%.3f", resumeMs / 1000.0));
+			} else {
+				mediaPlayer.media().play(mediaFile.getAbsolutePath());
+			}
 			mediaPlayer.audio().setMute(isMuted);
 			mediaPlayer.audio().setVolume((int) Math.round(volume * 100));
 			mediaPlayer.controls().setRate((float) rate);
@@ -624,6 +641,7 @@ public class Player {
 		@Override
 		public void finished(uk.co.caprica.vlcj.player.base.MediaPlayer mp) {
 			Platform.runLater(() -> {
+				resumePositions.remove(currentVideo);
 				updateClipInfo();
 				nextClip();
 			});
