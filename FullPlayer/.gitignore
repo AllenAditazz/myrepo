@@ -3,3 +3,22 @@
 /ski.mp4
 /target/
 /base/
+
+# large media used for conversion testing - kept on disk, never in git
+/convert/*.mp4
+/convert/*.wmv
+/convert/*.mkv
+/convert/*.m4v
+
+# build output
+/Player.jar
+/PlayerOLD.jar
+
+# config snapshots and backups (config.txt itself IS tracked)
+/config23-12-8.txt
+/config18-26.txt
+*.bak
+
+# JVM crash logs, macOS cruft
+hs_err_pid*.log
+.DS_Store
