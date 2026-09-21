@@ -159,6 +159,7 @@ public class Player {
 
 
 		Button playPauseButton = new Button("Play/Pause");
+		playPauseButton.setFocusTraversable(false);
 		playPauseButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -169,6 +170,7 @@ public class Player {
 
 
 		Button closeButton = new Button("Close");
+		closeButton.setFocusTraversable(false);
 		closeButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -176,6 +178,7 @@ public class Player {
             }
         });
 		Button closeUpdateButton = new Button("Close/Update");
+		closeUpdateButton.setFocusTraversable(false);
 		closeUpdateButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -184,6 +187,7 @@ public class Player {
             }
         });
 		Button moreButton = new Button("More");
+		moreButton.setFocusTraversable(false);
 		moreButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -198,6 +202,7 @@ public class Player {
         });
 
 		Button snapButton = new Button("Snap");
+		snapButton.setFocusTraversable(false);
 		snapButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
