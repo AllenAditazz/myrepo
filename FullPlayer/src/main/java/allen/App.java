@@ -556,6 +556,10 @@ public class App extends Application {
 
 		primaryStage.setTitle("Video Player");
 		primaryStage.setScene(scene);
+		// Maximize so the chooser (tags/directories/controls) has the full screen
+		// width to lay out in, rather than being squeezed into a fixed 1000px
+		// window and needing to scroll horizontally to see every element.
+		primaryStage.setMaximized(true);
 		primaryStage.show();
 
 	}
