@@ -49,7 +49,7 @@ public class Video {
 		fileName = p.getFileName().toString();
 		File f = new File(Utility.getModifiedPath(pString));
 		date = f.lastModified();
-		tags = Arrays.asList(tagsArg);
+		tags = new ArrayList<String>(Arrays.asList(tagsArg));
 
 	}
 		

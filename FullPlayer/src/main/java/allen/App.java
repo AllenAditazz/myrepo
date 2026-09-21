@@ -169,8 +169,6 @@ public class App extends Application {
 
 		Button playButton = new Button("Play");
 		actionPane.getChildren().add(playButton);
-		Button convertButton = new Button("Convert");
-		actionPane.getChildren().add(convertButton);
 		Button copyButton = new Button("Copy");
 		actionPane.getChildren().add(copyButton);
 
@@ -386,48 +384,6 @@ public class App extends Application {
 		
 		
 
-		convertButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-
-
-				vp = new VideoPreference();
-				vp.andTags = false;
-				vp.tags = new ArrayList<String>();
-				vp.directories = new ArrayList<String>();
-				for (CheckBox tag : dirCheckBoxes) {
-					if (tag.isSelected())
-						vp.directories.add(tag.getText());
-				}
-				vp.mostRecent = mostRecentRadioButton.isSelected();
-				vp.oldest = oldestRadioButton.isSelected();
-				vp.random = randomRadioButton.isSelected();
-				vp.alphabetical = alphabeticalRadioButton.isSelected();
-				vp.focusDate = timeSelector.getValue();
-				vp.rangeDate = timeVariance.getValue();
-				vp.searchString = searchTextField.getText().toLowerCase();
-				List<Video> matchingClips = vp.getAllUnPlayableClips(playList, infoPane);
-
-				String msg = matchingClips.size() + " Matching videos for conversion \n";
-				Utility.msg(analysisText, msg);
-				String numClipsS = numClipsComboBox.getValue();
-				int numberToConvert = 5;
-				if (!(numClipsS == null))
-					numberToConvert = Integer.parseInt(numClipsS);
-				List<Video> orderedMatchingClips = vp.orderClips(matchingClips);
-				orderedMatchingClips = orderedMatchingClips.subList(0,
-						Integer.min(numberToConvert, orderedMatchingClips.size()));
-				
-				
-				for (Video v : orderedMatchingClips) {
-					
-					 MediaConverter.convert(v, infoPane);
-					 config.serializeDB(config.configFileName, infoPane);
-
-				}
-
-			}
-		});
 		
 		copyButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override

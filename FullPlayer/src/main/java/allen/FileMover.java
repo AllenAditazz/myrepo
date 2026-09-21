@@ -101,7 +101,7 @@ public class FileMover {
 				}		
 			}
 			
-			//now do the move, if file is not supported by fx add tag BAD_CODE
+			//now do the move
 			//mediaFile is file object in comp
 			//p is path to comp
 
@@ -109,8 +109,7 @@ public class FileMover {
 				try {
 					Path destinationPath  =  Paths.get(destinationDir.toString(), p.getFileName().toString());
 					Files.move(p, destinationPath, REPLACE_EXISTING);
-					boolean isPlaybale = Utility.isSupportedMedia(destinationPath, msg);
-					Video vid =  isPlaybale ? new Video(destinationPath) :   new Video(destinationPath, Config.BAD_CODEC);
+					Video vid = new Video(destinationPath);
 					List<Video>  newVids = new ArrayList<Video>();
 					newVids.add(vid);
 					config.videos.add(vid);
