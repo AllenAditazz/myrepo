@@ -19,6 +19,8 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -39,6 +41,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -552,16 +555,55 @@ public class App extends Application {
 		StackPane root = new StackPane();
 		root.getChildren().add(tabPane);
 
-		Scene scene = new Scene(root, 1000, 1000);
+		Scene scene = new Scene(root);
 
 		primaryStage.setTitle("Video Player");
 		primaryStage.setScene(scene);
-		// Maximize so the chooser (tags/directories/controls) has the full screen
-		// width to lay out in, rather than being squeezed into a fixed 1000px
-		// window and needing to scroll horizontally to see every element.
-		primaryStage.setMaximized(true);
+
+		// Open at the smallest size that still shows every chooser element.
+		// applyCss()/layout() has to run first: a control has no skin, and so
+		// reports a preferred width of zero, until CSS has been applied to it.
+		root.applyCss();
+		root.layout();
+		sizeToChooserContent(primaryStage, topLevelPaneChooser, chooserScroll);
+
 		primaryStage.show();
 
+	}
+
+	/**
+	 * Sizes the window to the smallest that shows every element of the chooser:
+	 * its columns laid out in a single row at their preferred widths, clamped to
+	 * the screen. Past that clamp the chooser's scroll pane takes over, and
+	 * narrowing the window later wraps the columns as before.
+	 */
+	private void sizeToChooserContent(Stage stage, FlowPane chooser, ScrollPane chooserScroll) {
+		double width = chooser.getInsets().getLeft() + chooser.getInsets().getRight();
+		double height = 0;
+		int columns = 0;
+		for (Node column : chooser.getChildrenUnmodifiable()) {
+			if (!column.isManaged())
+				continue;
+			width += column.prefWidth(-1);
+			height = Math.max(height, column.prefHeight(-1));
+			columns++;
+		}
+		if (columns > 1)
+			width += chooser.getHgap() * (columns - 1);
+		height += chooser.getInsets().getTop() + chooser.getInsets().getBottom();
+
+		// one row at that width, rather than wrapping at the old fixed 1000
+		chooser.setPrefWrapLength(width);
+		chooser.setPrefWidth(width);
+
+		// floor guards against a bad measurement leaving an unusably small window
+		Rectangle2D screen = Screen.getPrimary().getVisualBounds();
+		chooserScroll.setPrefViewportWidth(
+				Math.min(Math.max(width, 800), screen.getWidth() - 40));
+		chooserScroll.setPrefViewportHeight(
+				Math.min(Math.max(height, 600), screen.getHeight() - 80));
+
+		stage.sizeToScene();
 	}
 
 	public void stop() {
