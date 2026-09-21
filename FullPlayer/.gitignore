@@ -14,7 +14,8 @@
 /Player.jar
 /PlayerOLD.jar
 
-# config snapshots and backups (config.txt itself IS tracked)
+# config/database files - local only, not versioned
+/config.txt
 /config23-12-8.txt
 /config18-26.txt
 *.bak
