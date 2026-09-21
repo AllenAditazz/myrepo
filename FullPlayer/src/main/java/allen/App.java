@@ -359,7 +359,7 @@ public class App extends Application {
 				vp.searchString = searchTextField.getText().toLowerCase();
 
 				try {
-					Pattern p = Pattern.compile(vp.searchString);
+					Pattern.compile(vp.searchString);   // validate only
 				} catch (PatternSyntaxException e) {
 					infoPane.appendText("Invalid search pattern \n");
 					return;
@@ -436,7 +436,7 @@ public class App extends Application {
 				vp.searchString = searchTextField.getText().toLowerCase();
 
 				try {
-					Pattern p = Pattern.compile(vp.searchString);
+					Pattern.compile(vp.searchString);   // validate only
 				} catch (PatternSyntaxException e) {
 					infoPane.appendText("Invalid search pattern \n");
 					return;

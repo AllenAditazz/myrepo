@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.regex.PatternSyntaxException;
+import java.util.regex.Pattern;
 
 import javafx.scene.control.TextArea;
 
@@ -26,6 +26,10 @@ public class VideoPreference {
 	public Double focusDate;
 	public Double rangeDate;
 	public String searchString;
+
+	// compiled once per query rather than once per video, and only
+	// recompiled if the search text actually changed
+	private Pattern searchPattern;
 	
 
 
@@ -80,7 +84,7 @@ public class VideoPreference {
 			}
 		}
 		
-		if(searchString.length() > 0 && ! v.fileName.toLowerCase().matches(searchString))
+		if (! matchesSearch(v.fileName.toLowerCase()))
 			return false;
 		
 		
@@ -93,6 +97,19 @@ public class VideoPreference {
 		return true;
 	}
 	
+	/**
+	 * Substring search: "snow" finds "Skylar Snow.mp4". String.matches() was
+	 * used here before, which requires the pattern to match the whole file name,
+	 * so a bare word found nothing. Anchor with ^ or $ for whole-name matching.
+	 */
+	private boolean matchesSearch(String fileName) {
+		if (searchString == null || searchString.isEmpty())
+			return true;
+		if (searchPattern == null || !searchPattern.pattern().equals(searchString))
+			searchPattern = Pattern.compile(searchString);
+		return searchPattern.matcher(fileName).find();
+	}
+
 	public List<Video> getAllPlayableClips(List<Video> playList, TextArea msg) {
 		return getAllMatchingClips(playList, msg);
 	}
