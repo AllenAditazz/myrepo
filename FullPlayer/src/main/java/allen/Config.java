@@ -7,20 +7,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
@@ -46,12 +42,10 @@ public class Config {
 	
 	protected static final  String DUP = "dup";
 	
-	protected static final  String BAD_CODEC = "badCodec";
 	
-	protected static final  String CONVERTED = "converted";
 	
 
-	protected static final List<String> SPECIAL_TAGS = Arrays.asList(BAD_CODEC, DUP, CONVERTED);
+	protected static final List<String> SPECIAL_TAGS = Arrays.asList(DUP);
 	
 	private Desktop  desktop = Desktop.getDesktop();
 
@@ -64,12 +58,10 @@ public class Config {
 	protected String configFileName;  //set when parsing
 
 	
-	private List<Video> unsupportedVideos;
 	private List<Video> nonVideos;
 	private List<Video> markedForDeletion;
 	private List<Video> dupsInVideoList;
 	private List<Video> deletedOrMoved;
-	private List<Video> requireTranscoding;
 	private List<String>  namesOfDupVideos;
 	private  Map<String, Integer> videoCountByDir = new HashMap<String, Integer>();
 	
@@ -120,14 +112,12 @@ public class Config {
 	void analyze(TextArea msgArea) {
 
 		
-		unsupportedVideos = new ArrayList<Video>();
 		nonVideos = new ArrayList<Video>();
 		markedForDeletion = new ArrayList<Video>();
 		//these are duplicate entries that should be merged
 		dupsInVideoList  = new ArrayList<Video>();
 		//these are the names of duplicate videos (same name and size)
 		namesOfDupVideos  = new ArrayList<String>();
-		requireTranscoding = new ArrayList<Video>();
 
 		
 		vidIndex = new HashMap<String, List<Video>>();
@@ -215,8 +205,6 @@ public class Config {
 			if (vid.markedForDeletion)
 				markedForDeletion.add(vid);
 			
-			if(vid.tags.stream().anyMatch( t -> t.equals(BAD_CODEC)))
-					requireTranscoding.add(vid);
 
 			if (vid.rating == null || vid.rating == 0)
 				unrated++;
@@ -227,8 +215,6 @@ public class Config {
 			if (vid.tags == null || vid.tags.size() > 0)
 				tagged++;
 
-			if (! Utility.FX_SUPPORTED_MEDIA_EXTENSIONS.contains(vid.fileExtn.toLowerCase()))
-				unsupportedVideos.add(vid);
 
 			if (!  Utility.MEDIA_EXTENSIONS.contains(vid.fileExtn.toLowerCase())) {
 				nonVideos.add(vid);
@@ -245,10 +231,6 @@ public class Config {
 		for(Video v : deletedOrMoved)
 			Utility.msg(msgArea, "deleted or moved" , v.toString());
 		
-		Utility.msg(msgArea, "Number of videos requiring transcoding: " + requireTranscoding.size());
-//		for(Video v : requireTranscoding) {
-//			Utility.msg(msgArea, "requireTranscoding" , v.toString());
-//		}
 		
 		
 		Utility.msg(msgArea,"number of duplicate entries  (same name and dir) in video list: " + dupsInVideoList.size());
@@ -277,7 +259,6 @@ public class Config {
 		
 
 		Utility.msg(msgArea, "number of unrated videos: " + unrated);
-		Utility.msg(msgArea, "number of unsupported videos: " + unsupportedVideos.size() );
 		
 		
 		Utility.msg(msgArea, "number of non videos: " + nonVideos.size());

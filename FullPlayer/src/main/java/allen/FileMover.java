@@ -2,12 +2,10 @@ package allen;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -101,7 +99,7 @@ public class FileMover {
 				}		
 			}
 			
-			//now do the move, if file is not supported by fx add tag BAD_CODE
+			//now do the move
 			//mediaFile is file object in comp
 			//p is path to comp
 
@@ -109,8 +107,7 @@ public class FileMover {
 				try {
 					Path destinationPath  =  Paths.get(destinationDir.toString(), p.getFileName().toString());
 					Files.move(p, destinationPath, REPLACE_EXISTING);
-					boolean isPlaybale = Utility.isSupportedMedia(destinationPath, msg);
-					Video vid =  isPlaybale ? new Video(destinationPath) :   new Video(destinationPath, Config.BAD_CODEC);
+					Video vid = new Video(destinationPath);
 					List<Video>  newVids = new ArrayList<Video>();
 					newVids.add(vid);
 					config.videos.add(vid);

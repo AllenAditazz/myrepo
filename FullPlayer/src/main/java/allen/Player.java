@@ -429,7 +429,6 @@ public class Player {
 		Video v = currentVideo;
     	List<String> tags = tagButtons.stream().
     			filter(tb -> tb.isSelected()).
-    			filter(tb -> ! tb.getText().equals(Config.CONVERTED)).  //auto deselect converted
     			map( tb -> tb.getText()).
     			collect(Collectors.toList());
     	v.tags = tags;
@@ -655,10 +654,7 @@ public class Player {
 		@Override
 		public void error(uk.co.caprica.vlcj.player.base.MediaPlayer mp) {
 			Platform.runLater(() -> {
-				if (currentVideo != null) {
-					currentVideo.addTag(Config.BAD_CODEC);
-					Utility.msg(ta, nowPlayingName + " unsupported/unplayable: tagged " + Config.BAD_CODEC);
-				}
+				Utility.msg(ta, nowPlayingName + " could not be played, skipping");
 				nextClip();
 			});
 		}

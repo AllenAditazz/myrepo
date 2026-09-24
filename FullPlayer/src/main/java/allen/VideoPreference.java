@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import java.util.regex.PatternSyntaxException;
+import java.util.regex.Pattern;
 
 import javafx.scene.control.TextArea;
 
@@ -26,15 +26,17 @@ public class VideoPreference {
 	public Double focusDate;
 	public Double rangeDate;
 	public String searchString;
+
+	// compiled once per query rather than once per video, and only
+	// recompiled if the search text actually changed
+	private Pattern searchPattern;
 	
 
 
 
 
 	
-	boolean matches(Video v, boolean supportedP) {
-		if( supportedP && ! Utility.FX_SUPPORTED_MEDIA_EXTENSIONS.contains(v.fileExtn))
-				return false;
+	boolean matches(Video v) {
 		
 
 		//location
@@ -82,16 +84,12 @@ public class VideoPreference {
 			}
 		}
 		
-		if(searchString.length() > 0 && ! v.fileName.toLowerCase().matches(searchString))
+		if (! matchesSearch(v.fileName.toLowerCase()))
 			return false;
 		
 		
-		if(supportedP  &&  ! tags.contains(Config.BAD_CODEC)  && v.tags.contains(Config.BAD_CODEC ))
-			return false;
 		
 		
-		if( ! supportedP &&  ! v.tags.contains(Config.BAD_CODEC ))
-			return false;
 		
 
 	
@@ -99,15 +97,25 @@ public class VideoPreference {
 		return true;
 	}
 	
+	/**
+	 * Substring search: "snow" finds "Skylar Snow.mp4". String.matches() was
+	 * used here before, which requires the pattern to match the whole file name,
+	 * so a bare word found nothing. Anchor with ^ or $ for whole-name matching.
+	 */
+	private boolean matchesSearch(String fileName) {
+		if (searchString == null || searchString.isEmpty())
+			return true;
+		if (searchPattern == null || !searchPattern.pattern().equals(searchString))
+			searchPattern = Pattern.compile(searchString);
+		return searchPattern.matcher(fileName).find();
+	}
+
 	public List<Video> getAllPlayableClips(List<Video> playList, TextArea msg) {
-		return getAllMatchingClips(playList, true, msg);
+		return getAllMatchingClips(playList, msg);
 	}
 	
-	public List<Video> getAllUnPlayableClips(List<Video> playList, TextArea msg) {
-		return getAllMatchingClips(playList, false, msg);
-	}
  
-	public List<Video> getAllMatchingClips(List<Video> playList, boolean supportedP, TextArea msg) {
+	public List<Video> getAllMatchingClips(List<Video> playList, TextArea msg) {
 
 		List<Video> matchingVideos = new ArrayList<Video>();
 		int middle = (int) (playList.size() * focusDate/100.0);
@@ -122,7 +130,7 @@ public class VideoPreference {
 
 		
 		for (int i = low; i <= high; i++) {
-			if (matches(playList.get(i), supportedP))
+			if (matches(playList.get(i)))
 				matchingVideos.add(playList.get(i));
 		}
 		return matchingVideos;
